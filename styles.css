@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url(https://files.oaiusercontent.com/file-GV48Gvxtdz3bZh3HLYV86v?se=2024-12-10T07%3A47%3A18Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D9eb3cb21-0a99-4242-8c9c-e739b73cfd3f.webp&sig=%2BHoYzbEWWNy%2B3tZ2MjxiL106u0t1WnwZoakooUwFpV4%3D);
+  background-image: #eec0af;
   display: flex;
   height: 100vh;
   overflow: hidden;

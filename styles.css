@@ -1,0 +1,320 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url(https://files.oaiusercontent.com/file-GV48Gvxtdz3bZh3HLYV86v?se=2024-12-10T07%3A47%3A18Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D9eb3cb21-0a99-4242-8c9c-e739b73cfd3f.webp&sig=%2BHoYzbEWWNy%2B3tZ2MjxiL106u0t1WnwZoakooUwFpV4%3D);
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+.login-container {
+  width: 100%;
+  max-width: 500px;
+}
+.login-card {
+  background-color: #ecd4cb;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+h2 {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.form-container {
+  background-color: #ecd4cb;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px 20px 20px 20px;
+  width: 300px;
+  text-align: center;
+}
+.form-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+  text-decoration: none;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.form-group input {
+  width: 93%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+.form-button {
+  margin-top: 20px;
+}
+.form-button button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #faf7f7;
+  background-color: #4da862;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+input[type="text"],
+input[type="password"] {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.form-button button:hover {
+  background-color: #639eda;
+}
+button:hover {
+  background-color: #45a049;
+}
+.links {
+  margin-top: 20px;
+}
+.links a {
+  color: #739fcf;
+  text-decoration: none;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+.signup-container {
+  width: 100%;
+  max-width: 500px;
+}
+.signup-card {
+  background-color: #ecd4cb;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #ecd4cb;
+  color: rgb(3, 3, 3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px 10px;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1000;
+}
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: rgb(246, 243, 243);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  padding-bottom: 10px;
+}
+.sidebar a {
+  display: block;
+  color: rgb(3, 3, 3);
+  text-decoration: none;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.sidebar a:hover {
+  background-color: #45a049;
+  color: white;
+}
+.content {
+  width: 100%;
+  max-width: 500px;
+  margin-left: 300px;
+  padding: 20px;
+  flex: 1;
+  transition: margin-left 0.5s ease-in-out;
+}
+.content.shifted {
+  margin-left: 0;
+}
+.box-container {
+  width: 100%;
+  background-color: #ecd4cb;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.box-container h1 {
+  margin-bottom: 50px;
+  font-size: 2.3rem;
+}
+.box-container p {
+  font-size: 1.2rem;
+  color: #000000;
+}
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.form-group input {
+  width: 93%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+.form-button {
+  margin-top: 20px;
+}
+.form-button button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #faf7f7;
+  background-color: #4da862;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form-button button:hover {
+  background-color: #367c4c;
+}
+.history-section {
+  margin-top: 20px;
+  text-align: center;
+}
+.history-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.history-section th, .history-section td {
+  padding: 12px;
+  border: 1px solid #ecd4cb;
+  text-align: left;
+}
+.history-section th {
+  background-color: #ecd4cb;
+}
+.history-section td {
+  background-color: #ecd4cb;
+}
+.toggle-btn {
+  position: fixed;
+  top: 12px;
+  left: 5px;
+  background-color: #4caf50;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1100;
+  transition: background-color 0.5s ease;
+}
+.toggle-btn:hover {
+  background-color: #45a049;
+}
+.logo1 {
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.sidebar .logo1 {
+  display: block;
+  margin: 5px auto 8px auto;
+  text-align: center;
+}
+.Logo2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.Logo2 img {
+  max-width: 30%;
+  height: 150px;
+}
+.investment-form input, 
+.investment-form select,
+.investment-form button { 
+  width: 100%;
+  padding: 10px; 
+  margin: 10px 0;
+  border: 1px solid #ecd4cb; 
+  border-radius: 5px;
+}
+.investment-form select {
+  font-size: 1rem;
+}
+.investment-form button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.investment-form button:hover {
+  background-color: #45a049;
+}
+.adi {
+  text-decoration: none;
+}
+#successMessage {
+  text-align: center;
+  padding: 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: none;
+}
+

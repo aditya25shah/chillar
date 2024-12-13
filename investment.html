@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <img src="https://i.ibb.co/ThnBR59/image-removebg-preview-1.png" alt="Logo1" class="logo1">
+    <h2>Menu</h2>
+    <a href="homepage.html">Home</a>
+    <a href="Loans.html">Loans</a>
+    <a href="schemes.html">Schemes</a>
+    <a href="Projections.html">Projections</a>
+    <a href="Logout.html">Logout</a>
+
+  </div>
+  <div class="content" id="content">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="box-container">
+      <div class="Logo2">
+        <img src="https://i.ibb.co/ThnBR59/image-removebg-preview-1.png" alt="Logo2">
+        </div>
+      <h1>Investment Page</h1>
+      <p>Enter the amount you'd like to invest and select the investment type:</p>
+      <form action="investment.html" method="POST" id="investment-form">
+        <div class="form-group">
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+        </div>
+
+        <div class="form-group">
+          <label for="investment-type">Investment Type:</label>
+          <select id="investment-type" name="investment-type" required>
+            <option value="">Select Type</option>
+            <option value="gold">Gold</option>
+            <option value="silver">Silver</option>
+            <option value="platinum">Platinum</option>
+          </select>
+        </div>
+        <div class="form-button">
+          <button type="submit">Invest</button>
+        </div>
+      </form>
+      <div id="investment-history" class="history-section">
+        <h2>Investment History</h2>
+        <table id="history-table">
+          <thead>
+            <tr>
+              <th>Amount&nbsp;&nbsp;</th>
+              <th> Investment Type&nbsp;</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

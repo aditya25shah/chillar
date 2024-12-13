@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop Price Projection in INR</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <img src="https://i.ibb.co/ThnBR59/image-removebg-preview-1.png" alt="Logo1" class="logo1">
+    <h2>Menu</h2>
+    <a href="homepage.html">Home</a>
+    <a href="investment.html">Investment</a>
+    <a href="Loans.html">Loans</a>
+    <a href="schemes.html">Schemes</a>
+    <a href="Logout.html">Logout</a>
+  </div>
+  <div class="content" id="content">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="box-container">
+      <h2>Commodity Price Projections (Gold, Silver, Platinum)</h2>
+      <canvas id="cropPriceChart" width="800" height="400"></canvas>
+      <h2>Crop Prices in Indian States (2000-2030)</h2>
+      <canvas id="priceChart" width="800" height="400"></canvas>
+    </div>
+  </div>
+  <script>
+    const ctx1 = document.getElementById('cropPriceChart').getContext('2d');
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027'],
+        datasets: [
+          {
+            label: 'Paddy Price (INR per Quintal)',
+            data: [1868, 1940, 2040, 2183, 2300, 2430, 2600, 2750],
+            borderColor: 'green',
+            backgroundColor: 'rgba(0, 128, 0, 0.2)',
+            fill: true,
+            tension: 0.1
+          },
+          {
+            label: 'Wheat Price (INR per Quintal)',
+            data: [1500, 1725, 2475, 2560, 2480, 2400, 2320, 2280],
+            borderColor: 'yellow',
+            backgroundColor: 'rgba(255, 255, 0, 0.2)',
+            fill: true,
+            tension: 0.1
+          },
+          {
+            label: 'Sugarcane Price (INR per Quintal)',
+            data: [285, 290, 290, 300, 310, 320, 330, 340],
+            borderColor: 'red',
+            backgroundColor: 'rgba(255, 0, 0, 0.2)',
+            fill: true,
+            tension: 0.1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: { display: true, text: 'Price (INR per Quintal)' }
+          },
+          x: {
+            title: { display: true, text: 'Year' }
+          }
+        }
+      }
+    });
+
+    // Chart for Crop Prices in Indian States
+    const ctx2 = document.getElementById("priceChart").getContext("2d");
+    const years = Array.from({ length: 31 }, (_, i) => 2000 + i);
+    const states = [
+      "Punjab", "Haryana", "Uttar Pradesh", "Maharashtra",
+      "Rajasthan", "Gujarat", "West Bengal", "Tamil Nadu",
+      "Madhya Pradesh", "Karnataka"
+    ];
+    const historicalPrices = {
+      "Punjab": [100, 105, 110, 116, 122, 129, 136, 144, 152, 160, 169, 178, 188, 198, 209, 220, 232, 245, 258, 272, 286],
+      "Haryana": [95, 100, 105, 111, 117, 124, 131, 139, 147, 155, 164, 173, 183, 193, 204, 215, 227, 239, 252, 265, 278],
+      "Uttar Pradesh": [90, 94, 98, 103, 108, 114, 120, 126, 132, 139, 146, 153, 161, 169, 178, 187, 196, 206, 216, 226, 236],
+      "Maharashtra": [80, 84, 88, 93, 98, 103, 109, 115, 121, 128, 135, 142, 150, 158, 166, 175, 184, 193, 203, 213, 223],
+      "Rajasthan": [85, 89, 93, 98, 103, 109, 115, 121, 128, 135, 142, 149, 157, 165, 174, 183, 192, 202, 212, 222, 232],
+      "Gujarat": [92, 97, 102, 108, 114, 120, 127, 134, 141, 148, 156, 164, 172, 181, 190, 199, 209, 219, 229, 240, 251],
+      "West Bengal": [88, 92, 96, 101, 106, 111, 117, 123, 129, 135, 142, 149, 156, 164, 172, 181, 190, 199, 209, 219, 229],
+      "Tamil Nadu": [75, 79, 83, 87, 92, 97, 102, 108, 114, 120, 126, 133, 140, 147, 155, 163, 171, 180, 189, 198, 207],
+      "Madhya Pradesh": [70, 74, 78, 82, 87, 92, 97, 102, 108, 114, 120, 126, 133, 140, 147, 155, 163, 171, 180, 189, 198],
+      "Karnataka": [78, 83, 88, 93, 98, 104, 110, 116, 123, 130, 137, 144, 152, 160, 168, 177, 186, 195, 205, 215, 225]
+    };
+
+    const projectedPrices = {};
+    for (const state of states) {
+      const lastPrice = historicalPrices[state].slice(-1)[0];
+      const rate = lastPrice - historicalPrices[state].slice(-2, -1)[0];
+      projectedPrices[state] = Array.from({ length: 10 }, (_, i) => lastPrice + (i + 1) * rate);
+    }
+
+    const combinedPrices = {};
+    for (const state of states) {
+      combinedPrices[state] = historicalPrices[state].concat(projectedPrices[state]);
+    }
+
+    const datasets = states.map((state, index) => ({
+      label: state,
+      data: combinedPrices[state],
+      borderColor: `hsl(${index * 36}, 70%, 50%)`,
+      tension: 0,
+      pointRadius: 3,
+      borderWidth: 2
+    }));
+
+    new Chart(ctx2, {
+      type: "line",
+      data: { labels: years, datasets: datasets },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "top" } },
+        scales: {
+          x: { title: { display: true, text: "Year" } },
+          y: { title: { display: true, text: "Price (Arbitrary Units)" } }
+        }
+      }
+    });
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const content = document.getElementById("content");
+      sidebar.classList.toggle("hidden");
+      content.classList.toggle("shifted");
+    }
+  </script>
+</body>
+</html>

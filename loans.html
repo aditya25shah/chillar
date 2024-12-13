@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loans Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <img src="https://i.ibb.co/ThnBR59/image-removebg-preview-1.png" alt="Logo1" class="logo1">
+    <h2>Menu</h2>
+    <a href="homepage.html">Home</a>
+    <a href="investment.html">Investment</a>
+    <a href="schemes.html">Schemes</a>
+    <a href="Projections.html">Projections</a>
+    <a href="Logout.html">Logout</a>
+  </div>
+  <div class="content" id="content">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="box-container">
+    <div class="Logo2">
+        <img src="https://i.ibb.co/ThnBR59/image-removebg-preview-1.png" alt="Logo2">
+    </div>
+        <h1>Loans Page</h1>
+        <p>Enter your Annual income and check whether your loan would be approved in the banks or not</p>
+        <form action="loans.html" method="POST" id="investment-form">
+            <div class="form-group">
+            </br>
+            <label for="annualIncome"> Annual Income (INR):</label>
+            <input type="number" id="annualIncome" placeholder="Enter Annual Income" required>
+            </br>
+            </br>
+            <label for="loanType">Select Loan Type:</label>
+            <select id="loanType" name="Loan-type"required>
+                <option value="">Select Type</option>
+                <option value="student">Student Loan</option>
+                <option value="girls">Girls Loan</option>
+                <option value="women">Women Educational Loan</option>
+            </select>
+            <div class="form-button">
+                <button type="submit">Check</button>
+            </div>
+        </br>
+        </form>
+    </div>
+    <div id="investment-history" class="history-section">
+      <h2>Loans History</h2>
+      <table id="history-table">
+        <thead>
+          <tr>
+            <th>Amount&nbsp;&nbsp;</th>
+            <th>Loan Type&nbsp;</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
